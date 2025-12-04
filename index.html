@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohd Shahid — Portfolio</title>
+  <meta name="description" content="Personal portfolio showcasing skills, projects, blog and resume." />
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#4f46e5; /* indigo */
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --max-width:1100px;
+      --gap:20px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(180deg,var(--bg),#081023); color:#e6eef8}
+    a{color:inherit}
+    .container{max-width:var(--max-width);margin:40px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:grid;place-items:center;font-weight:700}
+    h1{font-size:20px;margin:0}
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:8px 12px;border-radius:10px;cursor:pointer}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:var(--gap)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    /* Hero */
+    .hero{display:flex;gap:18px;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:20px;flex:0 0 120px;background:linear-gradient(180deg,#14213d,#0b1220);display:grid;place-items:center;font-size:28px}
+    .hero h2{margin:0;font-size:28px}
+    .role{color:var(--muted);margin-top:6px}
+
+    /* Skills */
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .skill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-size:13px}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .project{display:flex;gap:12px;align-items:center}
+    .thumb{width:88px;height:64px;border-radius:8px;background:linear-gradient(180deg,#0b1220,#081424);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .project h4{margin:0;font-size:15px}
+    .project p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+
+    /* Blog */
+    .blog-list{display:grid;gap:12px}
+    .post{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02)}
+    .post h5{margin:0}
+    .meta{font-size:13px;color:var(--muted);margin-top:6px}
+
+    /* Resume & Contact */
+    .resume{display:flex;flex-direction:column;gap:8px}
+    .download{display:flex;gap:8px}
+
+    footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .avatar{width:96px;height:96px}
+    }
+
+    /* Utilities */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:13px}
+
+    /* Print-friendly resume page */
+    @media print{
+      body{background:white;color:black}
+      .container{max-width:800px}
+      header,nav,footer,.blog-section{display:none}
+      .card{box-shadow:none;border:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">YN</div>
+        <div>
+          <h1>Mohd Shahid</h1>
+          <div class="muted">Frontend Engineer • Web Developer</div>
+        </div>
+      </div>
+      <nav aria-label="Primary navigation">
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#blog">Blog</a>
+        <a class="btn" href="#contact">Contact</a>
+        <button class="btn" onclick="printResume()">Print Resume</button>
+      </nav>
+    </header>
+
+    <main class="grid" role="main">
+      <section>
+        <div class="card hero" aria-labelledby="hero-heading">
+          <div class="avatar">YN</div>
+          <div>
+            <h2 id="hero-heading">Hi — I'm Mohd Shahid</h2>
+            <div class="role">I build beautiful, accessible web experiences. I focus on performance, design systems, and delightful UI.</div>
+            <div class="skills" aria-label="Key skills">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">React</span>
+              <span class="skill">TypeScript</span>
+              <span class="skill">Accessibility</span>
+            </div>
+            <p style="margin-top:12px;color:var(--muted);max-width:70%">I'm a frontend developer with a passion for turning design into code, creating performant and accessible interfaces, and mentoring junior developers.</p>
+            <div style="margin-top:14px;display:flex;gap:8px">
+              <a class="btn" href="#projects">See projects</a>
+              <a class="btn" href="#blog">Read my blog</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="projects" style="margin-top:20px">
+          <h3 style="margin-top:0">Selected Projects</h3>
+          <div class="projects" role="list">
+            <article class="project" role="listitem">
+              <div class="thumb">A</div>
+              <div>
+                <h4>Project Atlas</h4>
+                <p class="muted">A design system + component library for startups.</p>
+                <div class="muted" style="margin-top:6px;font-size:13px">React • Storybook • TypeScript</div>
+              </div>
+            </article>
+
+            <article class="project" role="listitem">
+              <div class="thumb">B</div>
+              <div>
+                <h4>Shoply</h4>
+                <p class="muted">E‑commerce front-end focused on performance and accessibility.</p>
+                <div class="muted" style="margin-top:6px;font-size:13px">Next.js • SSR • Lighthouse 98</div>
+              </div>
+            </article>
+
+            <article class="project" role="listitem">
+              <div class="thumb">C</div>
+              <div>
+                <h4>Dashboard Pro</h4>
+                <p class="muted">Analytics dashboard with realtime charts and export features.</p>
+                <div class="muted" style="margin-top:6px;font-size:13px">React • D3 • Websockets</div>
+              </div>
+            </article>
+
+            <article class="project" role="listitem">
+              <div class="thumb">D</div>
+              <div>
+                <h4>Portfolio CMS</h4>
+                <p class="muted">A small CMS for creators with a lightweight editor.</p>
+                <div class="muted" style="margin-top:6px;font-size:13px">Node • Express • SQLite</div>
+              </div>
+            </article>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn" href="#contact">Hire me</a>
+          </div>
+        </div>
+
+        <div class="card blog-section" id="blog" style="margin-top:20px">
+          <h3 style="margin-top:0">Latest from the blog</h3>
+          <div class="blog-list">
+            <article class="post">
+              <h5>Why CSS variables are my secret weapon</h5>
+              <div class="meta">Sep 12, 2025 • 6 min read</div>
+              <p class="muted" style="margin-top:8px">A short primer on using custom properties for themes, predictable scaling, and runtime tuning.</p>
+            </article>
+
+            <article class="post">
+              <h5>Building an accessible tab component</h5>
+              <div class="meta">Aug 3, 2025 • 8 min read</div>
+              <p class="muted" style="margin-top:8px">Step‑by‑step: keyboard interactions, ARIA roles, and test cases that matter.</p>
+            </article>
+
+            <article class="post">
+              <h5>Speed tips for modern web apps</h5>
+              <div class="meta">Jul 15, 2025 • 5 min read</div>
+              <p class="muted" style="margin-top:8px">Practical optimizations: image formats, caching, and bundle splitting.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0">Resume</h3>
+          <div class="resume">
+            <div class="muted">Senior Frontend Engineer</div>
+            <div class="muted">Location: Ghaziabad</div>
+            <div class="download">
+              <button class="btn" onclick="printResume()">Print / Save PDF</button>
+              <a class="btn" href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <hr style="margin:14px 0;border:0;border-top:1px solid rgba(255,255,255,0.03)" />
+          <h4 style="margin:6px 0">Experience</h4>
+          <div class="muted" style="font-size:14px">
+            • Frontend Engineer — Acme Corp (2022–Present)<br/>
+            • UI Engineer — Bright Labs (2019–2022)
+          </div>
+
+          <hr style="margin:14px 0;border:0;border-top:1px solid rgba(255,255,255,0.03)" />
+          <h4 style="margin:6px 0">Contact</h4>
+          <div class="muted">Email: <a href="mailto:you@example.com">mohd.25005132@kiet.edu</a></div>
+          <div style="margin-top:8px">
+            <a class="pill" href="https://github.com/yourname" target="_blank" rel="noopener">GitHub</a>
+            <a class="pill" href="#" style="margin-left:6px">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px" id="contact">
+          <h3 style="margin-top:0">Contact</h3>
+          <p class="muted">Want to work together or ask a question? Send a message.</p>
+          <form onsubmit="handleContact(event)">
+            <label class="muted" style="font-size:13px">Name</label>
+            <input required name="name" aria-label="Your name" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" />
+            <label class="muted" style="font-size:13px;margin-top:8px;display:block">Email</label>
+            <input required name="email" type="email" aria-label="Your email" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" />
+            <label class="muted" style="font-size:13px;margin-top:8px;display:block">Message</label>
+            <textarea required name="message" rows="4" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit"></textarea>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <button class="btn" type="submit">Send</button>
+              <button class="btn" type="reset">Reset</button>
+            </div>
+            <div id="formMsg" style="margin-top:10px;color:var(--muted);font-size:13px"></div>
+          </form>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Mohd Shahid — Built with ❤️ and HTML/CSS</div>
+    </footer>
+  </div>
+
+  <script>
+    // Small interactive bits
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function printResume(){
+      window.print();
+    }
+
+    function handleContact(e){
+      e.preventDefault();
+      const f = e.target;
+      const name = f.name.value.trim();
+      const email = f.email.value.trim();
+      const message = f.message.value.trim();
+      const msg = document.getElementById('formMsg');
+      // NOTE: This demo does not send data to a server. Replace with your endpoint.
+      msg.textContent = 'Thanks, ' + (name || 'there') + '! This demo form does not send messages. Replace handleContact() with a real API call.';
+      f.reset();
+    }
+  </script>
+</body>
+</html>
